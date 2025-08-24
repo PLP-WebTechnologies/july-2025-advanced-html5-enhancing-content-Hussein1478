@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechForward 2025 Conference Registration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #667eea;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+            margin: 30px 0 20px 0;
+        }
+        
+        .hero-media {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .hero-media img {
+            max-width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .speakers-list {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .speakers-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .speakers-list li {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        
+        .speakers-list li:hover {
+            transform: translateY(-2px);
+        }
+        
+        .speaker-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .speaker-title {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .schedule-table {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #764ba2;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9ff;
+        }
+        
+        tr:hover {
+            background: #e8f0ff;
+        }
+        
+        .form-section {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 2px solid #e0e8ff;
+        }
+        
+        fieldset {
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            background: white;
+        }
+        
+        legend {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        
+        .form-group {
+            margin: 15px 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+        
+        input:valid {
+            border-color: #28a745;
+        }
+        
+        input:invalid:not(:placeholder-shown) {
+            border-color: #dc3545;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #eee;
+            transition: all 0.2s ease;
+        }
+        
+        .checkbox-item:hover {
+            border-color: #667eea;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            border: 2px solid #eee;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .radio-item:hover {
+            border-color: #667eea;
+        }
+        
+        .radio-item input[type="radio"] {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .submit-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .media-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9ff;
+            border-radius: 15px;
+        }
+        
+        audio, video {
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .requirements {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .requirements h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        .requirements ol {
+            color: #856404;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 TechForward 2025 Conference</h1>
+            <p style="font-size: 1.2em; color: #666; margin: 0;">Join the Future of Technology • March 15-17, 2025 • San Francisco</p>
+        </header>
+
+        <!-- Hero Image -->
+        <div class="hero-media">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=300&fit=crop" 
+                 alt="Modern conference hall with technology displays and attendees networking">
+        </div>
+
+        <!-- Content Grid with Lists and Tables -->
+        <div class="content-grid">
+            <!-- Keynote Speakers List -->
+            <div class="speakers-list">
+                <h2>🎤 Keynote Speakers</h2>
+                <ul>
+                    <li>
+                        <div class="speaker-name">Dr. Sarah Chen</div>
+                        <div class="speaker-title">AI Ethics Researcher, Stanford University</div>
+                    </li>
+                    <li>
+                        <div class="speaker-name">Marcus Rodriguez</div>
+                        <div class="speaker-title">CTO, CloudTech Innovations</div>
+                    </li>
+                    <li>
+                        <div class="speaker-name">Prof. Elena Kowalski</div>
+                        <div class="speaker-title">Quantum Computing Pioneer, MIT</div>
+                    </li>
+                    <li>
+                        <div class="speaker-name">James Liu</div>
+                        <div class="speaker-title">Founder, GreenTech Solutions</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Conference Schedule Table -->
+            <div class="schedule-table">
+                <h2>📅 Conference Schedule</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Day 1 - March 15</th>
+                            <th>Track</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 AM</td>
+                            <td>Registration & Welcome Coffee</td>
+                            <td>All</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 AM</td>
+                            <td>Opening Keynote: The Future of AI</td>
+                            <td>Main</td>
+                        </tr>
+                        <tr>
+                            <td>11:30 AM</td>
+                            <td>Quantum Computing Breakthroughs</td>
+                            <td>Tech</td>
+                        </tr>
+                        <tr>
+                            <td>1:00 PM</td>
+                            <td>Networking Lunch</td>
+                            <td>All</td>
+                        </tr>
+                        <tr>
+                            <td>2:30 PM</td>
+                            <td>Sustainable Technology Panel</td>
+                            <td>Green</td>
+                        </tr>
+                        <tr>
+                            <td>4:00 PM</td>
+                            <td>Innovation Showcase</td>
+                            <td>Startup</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Media Section -->
+        <section class="media-section">
+            <h2>🎬 Conference Preview</h2>
+            <p>Get a taste of what's coming at TechForward 2025!</p>
+            
+            <!-- Sample Audio -->
+            <div>
+                <h3>🎧 Last Year's Highlight Reel</h3>
+                <audio controls preload="metadata">
+                    <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+                    <p>Your browser doesn't support audio playback. <a href="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav">Download the audio file</a></p>
+                </audio>
+            </div>
+
+            <!-- Sample Video -->
+            <div style="margin-top: 30px;">
+                <h3>📹 Welcome Message</h3>
+                <video controls width="400" height="225" preload="metadata">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                    <p>Your browser doesn't support video playback. <a href="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">Download the video file</a></p>
+                </video>
+            </div>
+        </section>
+
+        <!-- Requirements Section -->
+        <div class="requirements">
+            <h3>📋 Registration Requirements</h3>
+            <ol>
+                <li>All attendees must be 18 years or older</li>
+                <li>Valid email address for conference updates</li>
+                <li>Emergency contact information required</li>
+                <li>Dietary restrictions must be specified during registration</li>
+                <li>Photo ID required for check-in</li>
+            </ol>
+        </div>
+
+        <!-- Main Registration Form -->
+        <section class="form-section">
+            <h2>✍️ Conference Registration Form</h2>
+            <form id="registration-form" action="#" method="post" novalidate>
+                
+                <!-- Personal Information -->
+                <fieldset>
+                    <legend>👤 Personal Information</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" 
+                                   id="firstName" 
+                                   name="firstName" 
+                                   required 
+                                   minlength="2" 
+                                   maxlength="50"
+                                   pattern="[A-Za-z\s]+"
+                                   placeholder="Enter your first name"
+                                   autocomplete="given-name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" 
+                                   id="lastName" 
+                                   name="lastName" 
+                                   required 
+                                   minlength="2" 
+                                   maxlength="50"
+                                   pattern="[A-Za-z\s]+"
+                                   placeholder="Enter your last name"
+                                   autocomplete="family-name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   required 
+                                   placeholder="your.email@company.com"
+                                   autocomplete="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" 
+                                   id="phone" 
+                                   name="phone" 
+                                   required 
+                                   pattern="[0-9+\-\s\(\)]+"
+                                   placeholder="+1 (555) 123-4567"
+                                   autocomplete="tel">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birthdate">Date of Birth *</label>
+                            <input type="date" 
+                                   id="birthdate" 
+                                   name="birthdate" 
+                                   required 
+                                   max="2007-01-01"
+                                   autocomplete="bday">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="website">Personal/Company Website</label>
+                            <input type="url" 
+                                   id="website" 
+                                   name="website" 
+                                   placeholder="https://www.yoursite.com"
+                                   autocomplete="url">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Professional Information -->
+                <fieldset>
+                    <legend>💼 Professional Information</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title *</label>
+                            <input type="text" 
+                                   id="jobTitle" 
+                                   name="jobTitle" 
+                                   required 
+                                   minlength="2"
+                                   placeholder="Software Engineer, Product Manager, etc."
+                                   autocomplete="organization-title">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company/Organization *</label>
+                            <input type="text" 
+                                   id="company" 
+                                   name="company" 
+                                   required 
+                                   minlength="2"
+                                   placeholder="Your company name"
+                                   autocomplete="organization">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Years of Experience in Tech</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">Select your experience level</option>
+                            <option value="0-1">Less than 1 year</option>
+                            <option value="1-3">1-3 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="5-10">5-10 years</option>
+                            <option value="10+">More than 10 years</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn Profile URL</label>
+                        <input type="url" 
+                               id="linkedin" 
+                               name="linkedin" 
+                               pattern="https://.*linkedin\.com/.*"
+                               placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+                </fieldset>
+
+                <!-- Conference Preferences -->
+                <fieldset>
+                    <legend>🎯 Conference Preferences</legend>
+                    
+                    <div class="form-group">
+                        <label>Registration Type *</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="earlybird" name="registrationType" value="earlybird" required>
+                                <label for="earlybird">Early Bird - $299</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="regular" name="registrationType" value="regular" required>
+                                <label for="regular">Regular - $399</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="student" name="registrationType" value="student" required>
+                                <label for="student">Student - $199</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="vip" name="registrationType" value="vip" required>
+                                <label for="vip">VIP - $599</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Topics of Interest (Select all that apply) *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ai" name="interests" value="ai" required>
+                                <label for="ai">Artificial Intelligence</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="blockchain" name="interests" value="blockchain">
+                                <label for="blockchain">Blockchain & Web3</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cloud" name="interests" value="cloud">
+                                <label for="cloud">Cloud Computing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cybersecurity" name="interests" value="cybersecurity">
+                                <label for="cybersecurity">Cybersecurity</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="quantum" name="interests" value="quantum">
+                                <label for="quantum">Quantum Computing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sustainability" name="interests" value="sustainability">
+                                <label for="sustainability">Green Technology</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tshirtSize">T-Shirt Size *</label>
+                            <select id="tshirtSize" name="tshirtSize" required>
+                                <option value="">Choose your size</option>
+                                <option value="XS">Extra Small (XS)</option>
+                                <option value="S">Small (S)</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                                <option value="XL">Extra Large (XL)</option>
+                                <option value="XXL">2X Large (XXL)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="attendeeCount">Number of Additional Guests</label>
+                            <input type="number" 
+                                   id="attendeeCount" 
+                                   name="attendeeCount" 
+                                   min="0" 
+                                   max="5" 
+                                   value="0"
+                                   step="1">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Additional Information -->
+                <fieldset>
+                    <legend>📝 Additional Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="emergencyContact">Emergency Contact Name *</label>
+                        <input type="text" 
+                               id="emergencyContact" 
+                               name="emergencyContact" 
+                               required 
+                               minlength="2"
+                               placeholder="Full name of emergency contact">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emergencyPhone">Emergency Contact Phone *</label>
+                        <input type="tel" 
+                               id="emergencyPhone" 
+                               name="emergencyPhone" 
+                               required 
+                               pattern="[0-9+\-\s\(\)]+"
+                               placeholder="+1 (555) 987-6543">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dietary">Dietary Restrictions/Allergies</label>
+                        <textarea id="dietary" 
+                                  name="dietary" 
+                                  rows="4" 
+                                  maxlength="500"
+                                  placeholder="Please describe any dietary restrictions, food allergies, or special meal requirements..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accessibility">Accessibility Requirements</label>
+                        <textarea id="accessibility" 
+                                  name="accessibility" 
+                                  rows="3" 
+                                  maxlength="500"
+                                  placeholder="Please let us know if you need any accessibility accommodations..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="referralCode">Referral/Discount Code</label>
+                        <input type="text" 
+                               id="referralCode" 
+                               name="referralCode" 
+                               pattern="[A-Z0-9]+"
+                               placeholder="EARLYBIRD2025, STUDENT20, etc."
+                               style="text-transform: uppercase;">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="howHeard">How did you hear about TechForward 2025?</label>
+                        <select id="howHeard" name="howHeard">
+                            <option value="">Please select...</option>
+                            <option value="social-media">Social Media</option>
+                            <option value="colleague">Colleague/Friend</option>
+                            <option value="email">Email Newsletter</option>
+                            <option value="search">Google Search</option>
+                            <option value="previous-attendee">Previous Attendee</option>
+                            <option value="company">Company Announcement</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Read-only field for demonstration -->
+                    <div class="form-group">
+                        <label for="confirmationId">Confirmation ID (Auto-generated)</label>
+                        <input type="text" 
+                               id="confirmationId" 
+                               name="confirmationId" 
+                               value="CONF-2025-PREVIEW"
+                               readonly
+                               style="background: #f8f9fa; color: #6c757d;">
+                    </div>
+
+                    <div class="checkbox-item" style="margin: 20px 0;">
+                        <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                        <label for="newsletter">Subscribe to our newsletter for future tech events and industry insights</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="terms" name="terms" value="agreed" required>
+                        <label for="terms">I agree to the <a href="#" style="color: #667eea;">Terms and Conditions</a> and <a href="#" style="color: #667eea;">Privacy Policy</a> *</label>
+                    </div>
+                </fieldset>
+
+                <div class="submit-section">
+                    <button type="submit">🎉 Register for TechForward 2025</button>
+                    <p style="margin-top: 15px; color: #666; font-size: 0.9em;">
+                        By submitting this form, you'll receive a confirmation email within 24 hours.
+                    </p>
+                </div>
+            </form>
+        </section>
+
+        <footer style="text-align: center; margin-top: 40px; padding: 20px; color: #666; border-top: 1px solid #eee;">
+            <p>&copy; 2025 TechForward Conference. All rights reserved. | Questions? Email <a href="mailto:info@techforward2025.com" style="color: #667eea;">info@techforward2025.com</a></p>
+        </footer>
+    </div>
+</body>
+</html>
